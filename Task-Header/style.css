@@ -1,0 +1,115 @@
+ * {
+     margin: 0;
+     padding: 0;
+     list-style-type: none;
+     text-decoration: none;
+     font-size: 1.1rem;
+     font-family: 'Lobster';
+ }
+
+ body {
+     background-color: #EFF5F5;
+ }
+
+ .header {
+     height: 80px;
+     background-color: #3D464D;
+     display: flex;
+     justify-content: space-between;
+     padding-right: 50px;
+     padding-left: 50px;
+ }
+
+ @media(max-width:900px) {
+     .header {
+         padding: 40px 0;
+         flex-direction: column;
+         align-items: center;
+     }
+ }
+
+ #left-header {
+     display: flex;
+     background-color: #FFD333;
+     grid-gap: 200px;
+     align-items: center;
+     padding: 0 50px;
+ }
+
+ #categories {
+     display: flex;
+     grid-gap: 10px;
+ }
+
+ #mid-header {
+     display: flex;
+     grid-gap: 20px;
+     align-items: center;
+     color: #fff;
+ }
+
+ #right-header {
+     display: flex;
+     grid-gap: 20px;
+     align-items: center;
+ }
+
+ ul {
+     align-items: center;
+ }
+
+ #categories-list {
+     visibility: hidden;
+     position: absolute;
+ }
+
+ #cat-list:hover #categories-list {
+     visibility: visible;
+     background-color: #FFD333;
+     padding: 5px 5px;
+     cursor: pointer;
+ }
+
+ #pages-list {
+     visibility: hidden;
+     position: absolute;
+ }
+
+ #pag-list:hover #pages-list {
+     visibility: visible;
+     background-color: #FFD333;
+     padding: 5px 5px;
+     cursor: pointer;
+ }
+
+ a {
+     color: #fff;
+ }
+
+ #home {
+     color: #FFD333;
+ }
+
+ li:hover {
+     color: #fff;
+ }
+
+ a:hover {
+     color: #FFD333;
+ }
+
+ #pages-name:hover {
+     color: #FFD333;
+ }
+
+ .page-items {
+     color: black;
+ }
+
+ .fa-regular {
+     color: #fff;
+ }
+
+ .fas {
+     color: #FFD333;
+ }
