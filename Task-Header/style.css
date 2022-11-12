@@ -63,11 +63,14 @@
      position: absolute;
  }
 
- #cat-list:hover #categories-list {
+ #left-header:hover #categories-list {
      visibility: visible;
      background-color: #FFD333;
      padding: 5px 5px;
      cursor: pointer;
+ }
+ #left-header:hover {
+    background-color: #F5D5AE;
  }
 
  #pages-list {
