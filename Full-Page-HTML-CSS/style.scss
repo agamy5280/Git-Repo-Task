@@ -466,6 +466,8 @@ a:hover {
 .container-categories {
     padding-right: 50px;
     padding-left: 50px;
+    margin-bottom: 20px;
+    margin-top: 60px;
     h1 {
         overflow: hidden;
         span {
@@ -484,5 +486,94 @@ a:hover {
             border-top: 1px dashed #bec5cb;
             margin-left: 20px;
         }
+    }
+}
+.container-categories-list {
+    padding: 10px 50px;
+    display: flex;
+    justify-content: space-between;
+    #single-product {
+        background-color: #fff;
+        height: 100px;
+        width: 430px;
+        display: flex;
+        div {
+            margin: auto 0 auto 15px;
+            *{
+                font-family: sans-serif;
+            }
+            h6 {
+                color: #3D464D;
+            }
+            p {
+                margin-top: 10px;
+                color: #6C757D;
+            }
+        }
+    }
+    #single-product:hover {
+        background-color: #FFD333;
+        transition: all .5s ease-in-out;
+        cursor: pointer;
+}
+@media(max-width:900px) {
+    flex-direction: column;
+    #single-product {
+        margin-bottom: 10px;
+        flex-direction: row;
+        width: 100%;
+    }
+}
+}
+.container-featured-products {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 50px;
+    #single-featured-product {
+        background-color: #fff;
+        height: 500px;
+        width: 350px;
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        position: relative;
+        div {
+            bottom: 0;
+            margin: 0 auto;
+            position: absolute;
+            display: block;
+            * {
+                margin-bottom: 10px;
+            }
+            h6, h5{
+                color: #3D464D;
+            }
+            h6, span {
+                font-family: sans-serif;
+            }
+            span {
+                color: #6C757D;
+                text-decoration: line-through;
+                margin-left: 20px;
+            }
+            i {
+                color: #FFD333;
+                font-size: 0.7rem;
+            }
+            small {
+                font-size: 0.7rem;
+                color: #6C757D;
+            }
+        }
+        img{
+            width: 350px;
+            height: 400px;
+        }
+        img:hover {
+            cursor: pointer;
+        }
+    }
+    #single-featured-product:hover {
+        background-color: #6D9886;
     }
 }

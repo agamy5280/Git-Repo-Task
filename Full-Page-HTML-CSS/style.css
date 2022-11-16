@@ -436,6 +436,8 @@ a:hover {
 .container-categories {
   padding-right: 50px;
   padding-left: 50px;
+  margin-bottom: 20px;
+  margin-top: 60px;
 }
 .container-categories h1 {
   overflow: hidden;
@@ -455,4 +457,97 @@ a:hover {
   top: 50%;
   border-top: 1px dashed #bec5cb;
   margin-left: 20px;
+}
+
+.container-categories-list {
+  padding: 10px 50px;
+  display: flex;
+  justify-content: space-between;
+}
+.container-categories-list #single-product {
+  background-color: #fff;
+  height: 100px;
+  width: 430px;
+  display: flex;
+}
+.container-categories-list #single-product div {
+  margin: auto 0 auto 15px;
+}
+.container-categories-list #single-product div * {
+  font-family: sans-serif;
+}
+.container-categories-list #single-product div h6 {
+  color: #3D464D;
+}
+.container-categories-list #single-product div p {
+  margin-top: 10px;
+  color: #6C757D;
+}
+.container-categories-list #single-product:hover {
+  background-color: #FFD333;
+  transition: all 0.5s ease-in-out;
+  cursor: pointer;
+}
+@media (max-width: 900px) {
+  .container-categories-list {
+    flex-direction: column;
+  }
+  .container-categories-list #single-product {
+    margin-bottom: 10px;
+    flex-direction: row;
+    width: 100%;
+  }
+}
+
+.container-featured-products {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 50px;
+}
+.container-featured-products #single-featured-product {
+  background-color: #fff;
+  height: 500px;
+  width: 350px;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+}
+.container-featured-products #single-featured-product div {
+  bottom: 0;
+  margin: 0 auto;
+  position: absolute;
+  display: block;
+}
+.container-featured-products #single-featured-product div * {
+  margin-bottom: 10px;
+}
+.container-featured-products #single-featured-product div h6, .container-featured-products #single-featured-product div h5 {
+  color: #3D464D;
+}
+.container-featured-products #single-featured-product div h6, .container-featured-products #single-featured-product div span {
+  font-family: sans-serif;
+}
+.container-featured-products #single-featured-product div span {
+  color: #6C757D;
+  text-decoration: line-through;
+  margin-left: 20px;
+}
+.container-featured-products #single-featured-product div i {
+  color: #FFD333;
+  font-size: 0.7rem;
+}
+.container-featured-products #single-featured-product div small {
+  font-size: 0.7rem;
+  color: #6C757D;
+}
+.container-featured-products #single-featured-product img {
+  width: 350px;
+  height: 400px;
+}
+.container-featured-products #single-featured-product img:hover {
+  cursor: pointer;
+}
+.container-featured-products #single-featured-product:hover {
+  background-color: #6D9886;
 }/*# sourceMappingURL=style.css.map */
