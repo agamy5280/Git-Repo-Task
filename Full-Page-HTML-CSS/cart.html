@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/cart.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Cart</title>
+</head>
+<body>
+    <div class="top-header">
+        <div class="left-top-header">
+            <ul>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="#">Help</a></li>
+                <li><a href="#">FAQs</a></li>
+            </ul>
+        </div>
+        <div class="right-top-header">
+            <ul>
+                <li id="account-list">My Account <i class="fa-sharp fa-solid fa-caret-down"></i>
+                    <ul>
+                        <li>Sign In</li>
+                        <li>Sign Up</li>
+                    </ul>
+                </li>
+                <li id="currency-list">USD <i class="fa-sharp fa-solid fa-caret-down"></i>
+                    <ul>
+                        <li>EUR</li>
+                        <li>GBP</li>
+                        <li>CAD</li>
+                    </ul>
+                </li>
+                <li id="language-list">EN <i class="fa-sharp fa-solid fa-caret-down"></i>
+                    <ul>
+                        <li>FR</li>
+                        <li>AR</li>
+                        <li>RU</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="mid-header">
+        <div id="title">
+            <a href="#" id="multi">MULTI</a>
+            <a href="#" id="shop">SHOP</a>
+        </div>
+        <div id="search-bar">
+            <i class="fa fa-search"></i>
+            <input type="text" placeholder="Search for products">
+        </div>
+        <div id="support">
+            <p>Customer Service</p>
+            <h5>+20 123 456 7890</h5>
+        </div>
+    </div>
+    <div class="bottom-header">
+        <div id="left-header">
+            <div id="categories">
+                <i class="fa fa-bars mr-2"></i>
+                <span>Categories</span>
+            </div>
+            <div>
+                <ul>
+                    <li><i class="fa fa-angle-down"></i></li>
+                    <ul id="categories-list">
+                        <li>Category 1</li>
+                        <li>Category 2</li>
+                        <li>Category 3</li>
+                        <li>Category 4</li>
+                    </ul>
+                </ul>
+            </div>
+        </div>
+        <div id="mid-header">
+            <a id="home" href="#">Home</a>
+            <a href="#">Shop</a>
+            <a href="#">Shop Detail</a>
+            <div id="pages-div">
+                <ul id="pag-list">
+                    <li id="pages-name">Pages <i class="fa fa-angle-down"></i></li>
+                    <ul id="pages-list">
+                        <li class="page-items">Page 1</li>
+                        <li class="page-items">Page 2</li>
+                        <li class="page-items">Page 3</li>
+                        <li class="page-items">Page 4</li>
+                    </ul>
+                </ul>
+            </div>
+            <a href="#">Contact</a>
+        </div>
+        <div id="right-header">
+            <div>
+                <a href="#"> <i class="fas fa-heart"></i></a>
+                <i class="fa-regular fa-circle-dot"></i>
+            </div>
+            <div>
+                <a href="#"><i class="fas fa-shopping-cart"></i></a>
+                <i class="fa-regular fa-circle-dot"></i>
+            </div>
+        </div>
+    </div>
+    <div class="breadcrumbs">
+        <a href="index.html">Home</a>
+        <span>/</span>
+        <a href="index.html">Shop</a>
+        <span>/</span>
+        <a id="shopping-cart-name" href="cart.html">Shopping Cart</a>
+    </div>
+    <div class="container-product-purchase">
+        <div id="left-grid">
+            <div id="product-add">
+                <input type="text" name="productName" id="product-name" placeholder="Product Name">
+                <input type="number" name="productPrice" id="product-price" placeholder="Product Price">
+                <input type="number" name="productQuantity" id="product-quantity" placeholder="Product Quantity">
+                <button type="submit" onclick="addProduct()">Add</button>
+            </div>
+            <div id="product-info">
+                <p>Products</p>
+                <p>Price</p>
+                <p>Quantity</p>
+                <p>Total</p>
+                <p>Remove</p>
+            </div>
+            <div id="product-cart">
+            </div>    
+        </div>
+        <div id="right-grid">
+            <!-- Coupon code: sprints or Sprints -->
+            <input type="text" id="coupon" placeholder="Coupon code: sprints or Sprints"><button type="submit" id="coupon-btn" onclick="addCoupon()">Apply Coupon</button>
+            <div class="container-categories">
+                <h6><span>CART SUMMARY</span></h6>
+            </div>
+            <div id="cart-summary">
+                <div id="cost">
+                    <div>
+                        <label for="subtotal-cost">Subtotal:</label>
+                        <p>$<span id="subtotal-cost">0</span></p>
+                    </div>
+                    <div>
+                        <label for="discount">Discount:</label>
+                        <p>$<span id="discount">0</span></p>
+                    </div>
+                    <div>
+                        <label for="shipping-cost">Shipping:</label>
+                        <p>$<span id="shipping-cost">30</span></p>
+                    </div>
+                </div>
+                <div class="container-categories">
+                    <h6><span></span></h6>
+                </div>
+                <div id="cost-total">
+                    <label for="total-cost">Total:</label>
+                    <p>$<span id="total-cost">0</span></p>
+                </div>
+                <div id="button">
+                    <button type="submit">Proceed To Checkout</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/cart.js"></script>
+</body>
+</html>

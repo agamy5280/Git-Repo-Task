@@ -264,7 +264,7 @@ a:hover {
   display: flex;
 }
 .carousel #left-carousel {
-  background-image: url(images/carousel-1.jpg);
+  background-image: url(/Full-Page-HTML-CSS/images/carousel-1.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   display: flex;
@@ -305,7 +305,7 @@ a:hover {
   position: relative;
 }
 .carousel #right-carousel #right-top-carousel {
-  background-image: url(images/offer-1.jpg);
+  background-image: url(/Full-Page-HTML-CSS/images/offer-1.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   height: 45%;
@@ -338,7 +338,7 @@ a:hover {
 }
 .carousel #right-carousel #right-bottom-carousel {
   display: flex;
-  background-image: url(images/offer-2.jpg);
+  background-image: url(/Full-Page-HTML-CSS/images/offer-2.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   bottom: 0;
@@ -378,7 +378,8 @@ a:hover {
     margin-bottom: 220px;
     margin-right: 35px;
   }
-  .carousel #left-carousel, .carousel #right-carousel {
+  .carousel #left-carousel,
+.carousel #right-carousel {
     width: 100%;
   }
   .carousel #left-carousel {
@@ -522,10 +523,12 @@ a:hover {
 .container-featured-products #single-featured-product div * {
   margin-bottom: 10px;
 }
-.container-featured-products #single-featured-product div h6, .container-featured-products #single-featured-product div h5 {
+.container-featured-products #single-featured-product div h6,
+.container-featured-products #single-featured-product div h5 {
   color: #3D464D;
 }
-.container-featured-products #single-featured-product div h6, .container-featured-products #single-featured-product div span {
+.container-featured-products #single-featured-product div h6,
+.container-featured-products #single-featured-product div span {
   font-family: sans-serif;
 }
 .container-featured-products #single-featured-product div span {
@@ -573,7 +576,7 @@ a:hover {
   display: flex;
 }
 .container-banner #left-image {
-  background-image: url(images/offer-1.jpg);
+  background-image: url(/Full-Page-HTML-CSS/images/offer-1.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   height: 250px;
@@ -606,7 +609,7 @@ a:hover {
   transition: all 1s ease-in-out;
 }
 .container-banner #right-image {
-  background-image: url(images/offer-2.jpg);
+  background-image: url(/Full-Page-HTML-CSS/images/offer-2.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   height: 250px;
@@ -703,17 +706,21 @@ a:hover {
 .footer #getInTouch #parag {
   margin: 25px 0 25px 0;
 }
-.footer #quickShop *, .footer #myAccount * {
+.footer #quickShop *,
+.footer #myAccount * {
   margin-bottom: 5px;
 }
-.footer #quickShop h5, .footer #myAccount h5 {
+.footer #quickShop h5,
+.footer #myAccount h5 {
   margin-bottom: 25px;
 }
-.footer #quickShop a, .footer #myAccount a {
+.footer #quickShop a,
+.footer #myAccount a {
   display: block;
   font-size: 0.9rem;
 }
-.footer #quickShop i, .footer #myAccount i {
+.footer #quickShop i,
+.footer #myAccount i {
   margin-right: 8px;
 }
 .footer #contactUs * {
@@ -779,7 +786,8 @@ a:hover {
   display: flex;
   justify-content: space-between;
 }
-.footer #footer-bottom p, .footer #footer-bottom span {
+.footer #footer-bottom p,
+.footer #footer-bottom span {
   font-size: 0.9rem;
 }
 .footer #footer-bottom span {
@@ -789,7 +797,8 @@ a:hover {
   .footer {
     width: 100%;
   }
-  .footer #footer-top, .footer #footer-bottom {
+  .footer #footer-top,
+.footer #footer-bottom {
     flex-direction: column;
   }
   .footer #footer-top h5 {
@@ -801,4 +810,4 @@ a:hover {
   .footer #footer-bottom * {
     margin-bottom: 5px;
   }
-}/*# sourceMappingURL=style.css.map */
+}/*# sourceMappingURL=index.css.map */
