@@ -393,4 +393,19 @@ body {
 .container-product-purchase #right-grid #cart-summary #button button {
   padding: 10px 100px 10px 100px;
   cursor: pointer;
+}
+@media (max-width: 900px) {
+  .container-product-purchase #left-grid {
+    padding: 40px 0;
+    flex-direction: row;
+    align-items: center;
+  }
+  .container-product-purchase #right-grid {
+    padding: 40px 0;
+    flex-direction: row;
+    align-items: center;
+  }
+  .container-product-purchase * {
+    margin-bottom: 5px;
+  }
 }/*# sourceMappingURL=cart.css.map */
