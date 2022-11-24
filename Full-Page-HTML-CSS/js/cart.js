@@ -1,5 +1,6 @@
 let subtotal = 0;
-
+const shippingCost = 30;
+const discountPer = 0.25;
 function addProduct() {
     let productName = document.getElementById("product-name").value;
     let productPrice = document.getElementById("product-price").value;
@@ -20,17 +21,17 @@ function addProduct() {
     })
     subtotal += total;
     document.getElementById("subtotal-cost").innerHTML = subtotal;
-    document.getElementById("total-cost").innerHTML = subtotal + 30;
+    document.getElementById("total-cost").innerHTML = subtotal + shippingCost;
 }
 
 function addCoupon() {
     let couponCode = document.getElementById("coupon").value;
     if (couponCode == "Sprints" || couponCode == "sprints") {
         subtotal = document.getElementById("subtotal-cost").innerHTML;
-        price = subtotal * 0.25;
+        price = subtotal * discountPer;
         discount = subtotal - price;
         document.getElementById("discount").innerHTML = "-" + discount;
-        document.getElementById("total-cost").innerHTML = price + 30;
+        document.getElementById("total-cost").innerHTML = price + shippingCost;
         document.getElementById("coupon-btn").onclick = null;
     } else {
         alert("Coupon is invalid!")
