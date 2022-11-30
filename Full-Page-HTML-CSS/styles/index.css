@@ -264,7 +264,7 @@ a:hover {
   display: flex;
 }
 .carousel #left-carousel {
-  background-image: url(/Full-Page-HTML-CSS/images/carousel-1.jpg);
+  background-image: url(../images/carousel-1.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   display: flex;
@@ -305,7 +305,7 @@ a:hover {
   position: relative;
 }
 .carousel #right-carousel #right-top-carousel {
-  background-image: url(/Full-Page-HTML-CSS/images/offer-1.jpg);
+  background-image: url(../images/offer-1.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   height: 45%;
@@ -338,7 +338,7 @@ a:hover {
 }
 .carousel #right-carousel #right-bottom-carousel {
   display: flex;
-  background-image: url(/Full-Page-HTML-CSS/images/offer-2.jpg);
+  background-image: url(../images/offer-2.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   bottom: 0;
@@ -576,7 +576,7 @@ a:hover {
   display: flex;
 }
 .container-banner #left-image {
-  background-image: url(/Full-Page-HTML-CSS/images/offer-1.jpg);
+  background-image: url(../images/offer-1.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   height: 250px;
@@ -609,7 +609,7 @@ a:hover {
   transition: all 1s ease-in-out;
 }
 .container-banner #right-image {
-  background-image: url(/Full-Page-HTML-CSS/images/offer-2.jpg);
+  background-image: url(../images/offer-2.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   height: 250px;
