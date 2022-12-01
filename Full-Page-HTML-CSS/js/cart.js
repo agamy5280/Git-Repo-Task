@@ -1,5 +1,4 @@
 const discountPer = 0.25;
-const shippingCost = 30;
 const getShipping = () => {
     return products.length * 10;
   };
@@ -49,25 +48,24 @@ const getShipping = () => {
     </ul>
     `
   };
-  
-  const products = JSON.parse(localStorage.getItem("products") || "[]");
-  renderHTML();
-
   function addCoupon() {
     let couponCode = document.getElementById("coupon").value;
     if (couponCode == "Sprints" || couponCode == "sprints") {
         subtotal = document.getElementById("subtotal-cost").innerHTML;
         subtotal = subtotal.slice(1);
-        console.log(subtotal);
-        let price = subtotal * discountPer;
-        let discount = subtotal - price;
+        let shippingCost = document.getElementById("shipping-cost").innerHTML;
+        shippingCost = shippingCost.slice(1);
+        let discount = subtotal * discountPer;
         document.getElementById("discount").innerHTML = "$" + "-" +  discount;
-        document.getElementById("total-cost").innerHTML =  "$" + (price + shippingCost);
+        let newPrice = subtotal - discount;
+        let total = newPrice + parseInt(shippingCost);
+        document.getElementById("total-cost").innerHTML =  "$" + total;
         document.getElementById("coupon-btn").disabled = true;
         document.getElementById("coupon-btn").style.backgroundColor = "grey"
         document.getElementById("coupon-btn").style.cursor = "none";
-        renderHTML();
     } else {
         alert("Coupon is invalid!")
     }
 }
+  const products = JSON.parse(localStorage.getItem("products") || "[]");
+  renderHTML();
