@@ -614,7 +614,7 @@ a:hover {
 
             i {
                 color: #FFD333;
-                font-size: 0.7rem;
+                // font-size: 0.7rem;
             }
 
             small {
@@ -930,4 +930,9 @@ a:hover {
             }
         }
     }
+}
+.cart-icon {
+    i {
+        margin-left: 30px;
+    }  
 }

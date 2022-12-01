@@ -270,21 +270,41 @@ body {
 .container-product-purchase #left-grid #product-info {
   padding: 10px 0 10px 0;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   background-color: #3D464D;
   color: #fff;
 }
 .container-product-purchase #left-grid #product-cart {
   padding: 10px 0 10px 0;
-  background-color: #fff;
   color: black;
+  margin: 0px 20px 0px 20px;
 }
-.container-product-purchase #left-grid #product-cart * {
-  margin-left: 90px;
-  padding-right: 100px;
+.container-product-purchase #left-grid #product-cart ul {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  align-items: center;
+  text-align: center;
 }
-.container-product-purchase #left-grid #product-cart .myClass {
-  margin-bottom: 30px;
+.container-product-purchase #left-grid #product-cart ul button {
+  padding: 10px;
+}
+.container-product-purchase #left-grid #product-cart ul #minus-btn, .container-product-purchase #left-grid #product-cart ul #plus-btn {
+  background-color: #FFD333;
+  border: none;
+  color: #3D464D;
+}
+.container-product-purchase #left-grid #product-cart ul #minus-btn:hover, .container-product-purchase #left-grid #product-cart ul #plus-btn:hover {
+  cursor: pointer;
+  background-color: #6D9886;
+}
+.container-product-purchase #left-grid #product-cart ul #remove-btn {
+  background-color: red;
+  color: #3D464D;
+}
+.container-product-purchase #left-grid #product-cart ul #remove-btn:hover {
+  cursor: pointer;
+  background-color: #6D9886;
 }
 .container-product-purchase #right-grid {
   padding: 15px 0 15px 0;
@@ -393,19 +413,4 @@ body {
 .container-product-purchase #right-grid #cart-summary #button button {
   padding: 10px 100px 10px 100px;
   cursor: pointer;
-}
-@media (max-width: 900px) {
-  .container-product-purchase #left-grid {
-    padding: 40px 0;
-    flex-direction: row;
-    align-items: center;
-  }
-  .container-product-purchase #right-grid {
-    padding: 40px 0;
-    flex-direction: row;
-    align-items: center;
-  }
-  .container-product-purchase * {
-    margin-bottom: 5px;
-  }
 }/*# sourceMappingURL=cart.css.map */

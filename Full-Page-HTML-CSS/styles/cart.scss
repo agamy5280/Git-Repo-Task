@@ -7,7 +7,6 @@
     font-size: 1.1rem;
     font-family: sans-serif;
 }
-
 body {
     background-color: #EFF5F5;
 }
@@ -304,7 +303,6 @@ body {
     margin: 0px 50px 0px 50px;
     display: grid;
     grid-template-columns: 2fr 1fr;
-
     #left-grid {
         padding: 15px 0 15px 0;
         margin-right: 20px;
@@ -320,27 +318,44 @@ body {
         #product-info {
             padding: 10px 0 10px 0;
             display: flex;
-            justify-content: space-around;
+            justify-content: space-between;
             background-color: #3D464D;
             color: #fff;
         }
 
         #product-cart {
             padding: 10px 0 10px 0;
-            background-color: #fff;
             color: black;
-        }
-
-        #product-cart {
-            * {
-                margin-left: 90px;
-                padding-right: 100px;
+            margin: 0px 20px 0px 20px;
+            ul {
+                display: flex;
+                justify-content: space-between;
+                margin-bottom: 20px;
+                align-items: center;
+                text-align: center;
+                button {
+                    padding: 10px;
+                }
+                #minus-btn, #plus-btn {
+                    background-color: #FFD333;
+                    border: none;
+                    color: #3D464D;
+                }
+                #minus-btn:hover, #plus-btn:hover {
+                    cursor: pointer;
+                    background-color: #6D9886;
+                }
+                #remove-btn {
+                    background-color: red;
+                    color: #3D464D;
+                }
+                #remove-btn:hover {
+                    cursor: pointer;
+                    background-color: #6D9886;
+                }
             }
-
-            .myClass {
-                margin-bottom: 30px;
-            }
         }
+        
     }
 
     #right-grid {

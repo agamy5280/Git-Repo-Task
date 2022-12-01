@@ -538,7 +538,6 @@ a:hover {
 }
 .container-featured-products #single-featured-product div i {
   color: #FFD333;
-  font-size: 0.7rem;
 }
 .container-featured-products #single-featured-product div small {
   font-size: 0.7rem;
@@ -810,4 +809,11 @@ a:hover {
   .footer #footer-bottom * {
     margin-bottom: 5px;
   }
+}
+
+.cart-icon i {
+  margin-left: 30px;
+}
+.cart-icon i:hover {
+  color: #3D464D;
 }/*# sourceMappingURL=index.css.map */

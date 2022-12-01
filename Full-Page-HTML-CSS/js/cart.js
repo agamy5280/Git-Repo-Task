@@ -1,72 +1,73 @@
-let subtotal = 0;
-const shippingCost = 30;
 const discountPer = 0.25;
-let products = [];
-if(localStorage.getItem('products')){
-    products = JSON.parse(localStorage.getItem('products'));
-    let listProducts = document.getElementById("product-cart");
-    let ul = document.createElement("ul");
-    ul.classList.add("myClass");
-    listProducts.appendChild(ul);
-    ul.classList.add("myClass");
-    products.forEach((item) => {
-        let li = document.createElement("li");
-        li.innerText = item;
-        li.style.display = "inline";
-        listProducts.appendChild(li);
-    })
-    let subtotal_ = localStorage.getItem('subtotalStorage').slice(1, -1);
-    subtotal = parseInt(subtotal_);
-    console.log(subtotal);
-    document.getElementById("subtotal-cost").innerHTML = subtotal;
-    document.getElementById("total-cost").innerHTML =  shippingCost;
-}
-function addProduct() {
-    let productName = document.getElementById("product-name").value;
-    let productPrice = document.getElementById("product-price").value;
-    let productQuantity = document.getElementById("product-quantity").value;
-    let total = productPrice * productQuantity;
-    const remove = "Remove";
-    let list = [productName, productPrice, productQuantity, total, remove]
-    let listProducts = document.getElementById("product-cart");
-    let ul = document.createElement("ul");
-    ul.classList.add("myClass");
-    listProducts.appendChild(ul);
-    ul.classList.add("myClass");
-    list.forEach((item) => {
-        let li = document.createElement("li");
-        li.innerText = item;
-        li.style.display = "inline";
-        listProducts.appendChild(li);
-    })
-    subtotal += total;
-    document.getElementById("subtotal-cost").innerHTML = +subtotal;
-    document.getElementById("total-cost").innerHTML = +subtotal + +shippingCost;
-    saveToLocalStorage(list, subtotal, shippingCost);
-}
+const shippingCost = 30;
+const getShipping = () => {
+    return products.length * 10;
+  };
+  
+  const getSubTotal = () => {
+    return products.map((p) => p.price * p.quantity).reduce((a, e) => (a += e));
+  };
+  
+  const getTotal = () => getShipping() + getSubTotal();
+  
+  const decQuantity = (i) => {
+    if (products[i].quantity > 1) products[i].quantity--;
+    renderHTML();
+  };
+  const incQuantity = (i) => {
+    products[i].quantity++;
+    renderHTML();
+  };
+  const remove = (i) => {
+    products.splice(i, 1);
+    localStorage.setItem("products", JSON.stringify(products));
+    renderHTML();
+  };
+  
+  const renderHTML = () => {
+    document.getElementById("product-cart").innerHTML = "";
+    products.forEach((p, i) => {
+      document.getElementById("product-cart").innerHTML += getProductHTMLRow(p, i);
+    });
+    document.getElementById("shipping-cost").innerHTML = `$${getShipping()}`;
+    document.getElementById("subtotal-cost").innerHTML = `$${getSubTotal()}`;
+    document.getElementById("total-cost").innerHTML = `$${getTotal()}`;
+  };
+  
+  const getProductHTMLRow = (p, i) => {
+    return `
+    <ul class="myClass">
+        <li><img src="./images/${p.productName}.jpg" alt="" style="width: 50px;">${p.productName}</li>
+        <li>$${p.price}</li>
+        <li>
+        <button id="minus-btn" onclick="decQuantity(${i})"><i class="fa-solid fa-minus"></i></button>
+        ${p.quantity}
+        <button id="plus-btn" onclick="incQuantity(${i})"><i class="fa-solid fa-plus"></i></button>
+        </li>
+        <li>$${p.price * p.quantity}</li>
+        <li><button id="remove-btn" onclick="remove(${i})"><i class="fa-solid fa-x"></i></button></li>
+    </ul>
+    `
+  };
+  
+  const products = JSON.parse(localStorage.getItem("products") || "[]");
+  renderHTML();
 
-function addCoupon() {
+  function addCoupon() {
     let couponCode = document.getElementById("coupon").value;
     if (couponCode == "Sprints" || couponCode == "sprints") {
         subtotal = document.getElementById("subtotal-cost").innerHTML;
-        price = subtotal * discountPer;
-        discount = subtotal - price;
-        document.getElementById("discount").innerHTML = "-" + discount;
-        document.getElementById("total-cost").innerHTML = price + shippingCost;
-        document.getElementById("coupon-btn").onclick = null;
+        subtotal = subtotal.slice(1);
+        console.log(subtotal);
+        let price = subtotal * discountPer;
+        let discount = subtotal - price;
+        document.getElementById("discount").innerHTML = "$" + "-" +  discount;
+        document.getElementById("total-cost").innerHTML =  "$" + (price + shippingCost);
+        document.getElementById("coupon-btn").disabled = true;
+        document.getElementById("coupon-btn").style.backgroundColor = "grey"
+        document.getElementById("coupon-btn").style.cursor = "none";
+        renderHTML();
     } else {
         alert("Coupon is invalid!")
     }
-}
-
-function saveToLocalStorage(list, subtotal, shippingCost) {
-    let products = [];
-    let subtotalStorage = [];
-    if(localStorage.getItem('products')){
-        products = JSON.parse(localStorage.getItem('products'));
-    }
-    products.push(list);
-    subtotalStorage.push(subtotal);
-    localStorage.setItem('products', JSON.stringify(products));
-    localStorage.setItem('subtotalStorage', JSON.stringify(subtotalStorage));
 }
