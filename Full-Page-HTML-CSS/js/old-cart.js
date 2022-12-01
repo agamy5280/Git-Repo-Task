@@ -2,15 +2,15 @@ let subtotal = 0;
 const shippingCost = 30;
 const discountPer = 0.25;
 let list = [];
-if(localStorage.getItem('products')){
-    list = JSON.parse(localStorage.getItem('products'));
-    CreateUl(list);
-    let subtotal_ = localStorage.getItem('subtotalStorage').slice(1, -1);
-    subtotal = parseInt(subtotal_);
-    console.log(subtotal);
-    document.getElementById("subtotal-cost").innerHTML = subtotal;
-    document.getElementById("total-cost").innerHTML =  shippingCost;
-}
+// if(localStorage.getItem('products')){
+//     list = JSON.parse(localStorage.getItem('products'));
+//     CreateUl(list);
+//     let subtotal_ = localStorage.getItem('subtotalStorage').slice(1, -1);
+//     subtotal = parseInt(subtotal_);
+//     console.log(subtotal);
+//     document.getElementById("subtotal-cost").innerHTML = subtotal;
+//     document.getElementById("total-cost").innerHTML =  shippingCost;
+// }
 function addProduct() {
     let productName = document.getElementById("product-name").value;
     let productPrice = document.getElementById("product-price").value;
@@ -60,12 +60,12 @@ localStorage.clear();
 function CreateUl(list) {
     let listProducts = document.getElementById("product-cart");
     let ul = document.createElement("ul");
+    ul.setAttribute('style','display:flex');
     listProducts.appendChild(ul);
     list.forEach((item) => {
         let li = document.createElement("li");
         li.append(item);
-        li.style.display = "inline";
-        listProducts.appendChild(li);
+        ul.appendChild(li);
     })
     // let listProducts = document.getElementById("product-cart");
     // list.forEach(()=>{
