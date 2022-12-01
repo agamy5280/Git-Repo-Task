@@ -11,10 +11,12 @@ const getShipping = () => {
   
   const decQuantity = (i) => {
     if (products[i].quantity > 1) products[i].quantity--;
+    localStorage.setItem("products", JSON.stringify(products));
     renderHTML();
   };
   const incQuantity = (i) => {
     products[i].quantity++;
+    localStorage.setItem("products", JSON.stringify(products));
     renderHTML();
   };
   const remove = (i) => {
