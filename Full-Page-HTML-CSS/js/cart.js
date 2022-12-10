@@ -1,3 +1,9 @@
+if(localStorage.getItem('x-access-token')) {
+  
+} else {
+  alert("please login first!");
+  window.location.href = "login.html";
+}
 const discountPer = 0.25;
 const getShipping = () => {
     return products.length * 10;
@@ -38,7 +44,7 @@ const getShipping = () => {
   const getProductHTMLRow = (p, i) => {
     return `
     <ul class="myClass">
-        <li><img src="./images/${p.productName}.jpg" alt="" style="width: 50px;">${p.productName}</li>
+        <li><img src="./assets/img/${p.productName.slice(0,7) + '-' + p.productName.slice(8,9)}.jpg" alt="" style="width: 50px;">${p.productName}</li>
         <li>$${p.price}</li>
         <li>
         <button id="minus-btn" onclick="decQuantity(${i})"><i class="fa-solid fa-minus"></i></button>
@@ -68,6 +74,14 @@ const getShipping = () => {
     } else {
         alert("Coupon is invalid!")
     }
+}
+function saveToLocalStorage() {
+  let subtotal = document.getElementById("subtotal-cost").innerHTML.slice(1);
+  let shipping = document.getElementById("shipping-cost").innerHTML.slice(1);
+  let totalCost = document.getElementById("total-cost").innerHTML.slice(1);
+  localStorage.setItem("subtotal", JSON.stringify(subtotal));
+  localStorage.setItem("shipping", JSON.stringify(shipping));
+  localStorage.setItem("totalCost", JSON.stringify(totalCost));
 }
   const products = JSON.parse(localStorage.getItem("products") || "[]");
   renderHTML();

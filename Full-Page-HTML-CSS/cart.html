@@ -162,13 +162,15 @@
                     <label for="total-cost">Total:</label>
                     <p><span id="total-cost">0</span></p>
                 </div>
-                <div id="button">
-                    <button type="submit">Proceed To Checkout</button>
-                </div>
+                <a href="checkout.html">
+                    <div id="button">
+                        <button type="submit" onclick="saveToLocalStorage()">Proceed To Checkout</button>
+                    </div>
+                </a>
             </div>
         </div>
     </div>
-    <script src="js/class-cart.js"></script>
+    <script src="js/cart.js"></script>
 </body>
 
 </html>
