@@ -199,7 +199,7 @@ require_once(("./php/vendors.php"));
           <div class="text-center py-4">
             <a class="h6 text-decoration-none text-truncate" href=""><?= $prod['name'] ?></a>
             <div class="d-flex align-items-center justify-content-center mt-2">
-              <h5>$<?= $prod['price'] * $prod['discount'] ?></h5>
+              <h5>$<?= floor($prod['price'] - ($prod['price'] * $prod['discount'])) ?></h5>
               <h6 class="text-muted ml-2"><del>$<?= $prod['price'] ?></del></h6>
             </div>
             <div class="d-flex align-items-center justify-content-center mb-1">
@@ -305,7 +305,7 @@ require_once(("./php/vendors.php"));
           <div class="text-center py-4">
             <a class="h6 text-decoration-none text-truncate" href=""><?= $prod['name'] ?></a>
             <div class="d-flex align-items-center justify-content-center mt-2">
-              <h5>$<?= $prod['price'] * $prod['discount'] ?></h5>
+              <h5>$<?= floor($prod['price'] - ($prod['price'] * $prod['discount']) ) ?></h5>
               <h6 class="text-muted ml-2"><del>$<?= $prod['price'] ?></del></h6>
             </div>
             <div class="d-flex align-items-center justify-content-center mb-1">
