@@ -205,8 +205,9 @@ require_once(("./php/vendors.php"));
             <div class="d-flex align-items-center justify-content-center mb-1">
               <?php
                   if (is_float($prod['rating'])) {
-                  $num = floor($prod['rating']);
-                  for ($i = 0; $i < $num; $i++) {
+                  $num_ceil = ceil($prod['rating']); 
+                  $num_floor = floor($prod['rating']);
+                  for ($i = 0; $i < $num_floor; $i++) {
                     ?>
               <small class="fa fa-star text-primary mr-1"></small>
               <?php
@@ -214,12 +215,28 @@ require_once(("./php/vendors.php"));
                   ?>
               <small class="fa fa-star-half text-primary mr-1"></small>
               <?php
+                  if($num_ceil < 5){
+                    $temp = 5 - $num_ceil;
+                    for ($i = 0; $i < $temp; $i++ ){
+                      ?>
+                      <small><i class="far fa-star text-primary mr-1"></i></small>
+                      <?php
+                    }
+                  }
                   }
                   else {
                     for ($i = 0; $i < $prod['rating']; $i++) {
                       ?>
               <small class="fa fa-star text-primary mr-1"></small>
               <?php
+                    }
+                    if($prod['rating'] < 5){
+                      $temp = 5 - $prod['rating'];
+                      for ($i = 0; $i < $temp; $i++ ){
+                        ?>
+                          <small><i class="far fa-star text-primary mr-1"></i></small>
+                        <?php
+                      }
                     }
                   }
                 ?>
@@ -294,8 +311,9 @@ require_once(("./php/vendors.php"));
             <div class="d-flex align-items-center justify-content-center mb-1">
               <?php
                   if (is_float($prod['rating'])) {
-                  $num = floor($prod['rating']);
-                  for ($i = 0; $i < $num; $i++) {
+                    $num_ceil = ceil($prod['rating']); 
+                    $num_floor = floor($prod['rating']);
+                    for ($i = 0; $i < $num_floor; $i++) {
                     ?>
               <small class="fa fa-star text-primary mr-1"></small>
               <?php
@@ -303,12 +321,28 @@ require_once(("./php/vendors.php"));
                   ?>
               <small class="fa fa-star-half text-primary mr-1"></small>
               <?php
+              if($num_ceil < 5){
+                $temp = 5 - $num_ceil;
+                for ($i = 0; $i < $temp; $i++ ){
+                  ?>
+                  <small><i class="far fa-star text-primary mr-1"></i></small>
+                  <?php
+                }
+              }
                   }
                   else {
                     for ($i = 0; $i < $prod['rating']; $i++) {
                       ?>
               <small class="fa fa-star text-primary mr-1"></small>
               <?php
+                    }
+                    if($prod['rating'] < 5){
+                      $temp = 5 - $prod['rating'];
+                      for ($i = 0; $i < $temp; $i++ ){
+                        ?>
+                          <small><i class="far fa-star text-primary mr-1"></i></small>
+                        <?php
+                      }
                     }
                   }
                 ?>
