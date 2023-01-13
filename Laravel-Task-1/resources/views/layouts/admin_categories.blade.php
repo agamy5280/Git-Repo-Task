@@ -145,6 +145,9 @@
                             <th scope="col">#</th>
                             <th scope="col">Name</th>
                             <th scope="col">Image</th>
+                            <th scope="col">Add</th>
+                            <th scope="col">Edit</th>
+                            <th scope="col">Delete</th>
                         </tr>
                     </thead>
                     <tbody style="text-align: center">
@@ -153,16 +156,15 @@
                                 <th scope="row">{{$index + 1}}</th>
                                 <td>{{ $category['name'] }}</td>
                                 <td><img src="{{ url($category['image']) }}" id="img-products" /></td>
+                                <td><a href="add-products.php"><button type="button" class="btn btn-success"
+                                    id="add-btn">Add</button></a></td>
+                                <td><a href="add-products.php"><button type="button" class="btn btn-warning"
+                                    id="add-btn">Edit</button></a></td>
+                                <td><a href="add-products.php"><button type="button" class="btn btn-danger"
+                                    id="add-btn">Delete</button></a> </td>
                         @endforeach
-
                     </tbody>
                 </table>
-                <a href="add-products.php"><button type="button" class="btn btn-success"
-                        id="add-btn">Add</button></a>
-                <a href="add-products.php"><button type="button" class="btn btn-warning"
-                            id="add-btn">Edit</button></a>
-                <a href="add-products.php"><button type="button" class="btn btn-danger"
-                                id="add-btn">Delete</button></a>        
             </div>
         </div>
         <!-- /.content-wrapper -->
