@@ -159,6 +159,10 @@
                 </table>
                 <a href="add-products.php"><button type="button" class="btn btn-success"
                         id="add-btn">Add</button></a>
+                <a href="add-products.php"><button type="button" class="btn btn-warning"
+                            id="add-btn">Edit</button></a>
+                <a href="add-products.php"><button type="button" class="btn btn-danger"
+                                id="add-btn">Delete</button></a>        
             </div>
         </div>
         <!-- /.content-wrapper -->
