@@ -10,3 +10,16 @@
     width: 100px;
     height: 100px;
   }
+  #form-add {
+    margin-left: 65px;
+    margin-right: 65px;
+    justify-items: center;
+  }
+  #form-add > #div-btn {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+  }
+  #exampleFormControlTextarea1 {
+    border-radius: 8px;
+  }

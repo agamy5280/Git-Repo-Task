@@ -17,6 +17,7 @@
   <link rel="stylesheet" href="{{url('plugins/icheck-bootstrap/icheck-bootstrap.min.css')}}">
   <!-- JQVMap -->
   <link rel="stylesheet" href="{{url('plugins/jqvmap/jqvmap.min.css')}}">
+  <link rel="stylesheet" href="{{ url('dist/css/myCSS.css') }}">
   <!-- Theme style -->
   <link rel="stylesheet" href="{{url('dist/css/adminlte.min.css')}}">
   <!-- overlayScrollbars -->
@@ -26,6 +27,7 @@
   <!-- summernote -->
   <link rel="stylesheet" href="{{url('plugins/summernote/summernote-bs4.min.css')}}">
 </head>
+  
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
   <!-- Main Sidebar Container -->
@@ -65,7 +67,7 @@
             <!-- Add icons to the links using the .nav-icon class
                  with font-awesome or any other icon font library -->
             <li class="nav-item">
-              <a href="pages/widgets.html" class="nav-link">
+              <a href="admin/products" class="nav-link">
                 <i class="nav-icon fas fa-th"></i>
                 <p>
                   Products
@@ -125,12 +127,13 @@
     </div>
     <!-- /.sidebar -->
   </aside>
-
+  @yield('content')
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
-    
+
   </div>
   <!-- /.content-wrapper -->
+
   <footer class="main-footer">
     <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong>
     All rights reserved.
@@ -144,6 +147,7 @@
     <!-- Control sidebar content goes here -->
   </aside>
   <!-- /.control-sidebar -->
+
 </div>
 <!-- ./wrapper -->
 
@@ -182,4 +186,5 @@
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="dist/js/pages/dashboard.js"></script>
 </body>
+
 </html>

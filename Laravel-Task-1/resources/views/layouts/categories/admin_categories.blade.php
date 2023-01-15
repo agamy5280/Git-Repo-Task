@@ -71,7 +71,7 @@
                         <!-- Add icons to the links using the .nav-icon class
                  with font-awesome or any other icon font library -->
                         <li class="nav-item">
-                            <a href="pages/widgets.html" class="nav-link">
+                            <a href="{{ url('admin/products') }}" class="nav-link">
                                 <i class="nav-icon fas fa-th"></i>
                                 <p>
                                     Products
@@ -162,6 +162,7 @@
                                     id="add-btn">Edit</button></a></td>
                                 <td><a href="add-products.php"><button type="button" class="btn btn-danger"
                                     id="add-btn">Delete</button></a> </td>
+                            </tr>
                         @endforeach
                     </tbody>
                 </table>
