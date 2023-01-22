@@ -165,7 +165,7 @@
                                 <td>{{ $product['description'] }}</td>
                                 <td>{{ $product['rating'] }}</td>
                                 <td>{{ $product['rating_count'] }}</td>
-                                <td><img src="{{ url($product['image']) }}" style="width: 40px; height:40px" id="img-products" /></td>
+                                <td><img src="{{asset('storage/'.$product->image)}}" style="width: 40px; height:40px" id="img-products" /></td>
                                 <td>{{ $product['category']['name'] }}</td>
                                 <td>{{ $product['size'] }}</td>
                                 <td>{{ $product['color'] }}</td>

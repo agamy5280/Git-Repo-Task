@@ -14,15 +14,18 @@ class ProductsController extends Controller
     }
     function store(Request $request)
     {
-         // dd($request->post());
+        //  dd($request->post());
         $request->validate(Product::$rules);
-        Product::create($request->post());
-
         $imageUrl = $request->file('image')->store('products', ['disk' => 'public']);
         $products = new Product;
-
+        // // Product::create($request->post());
+        
         $products->fill($request->post());
         $products['image'] = $imageUrl;
+        $products['rating'] = 0;
+        $products['rating_count'] = 0;
+        $products['is_recent'] = $request['is_recent'] ? 1 : 0;
+        $products['is_featured'] = $request['is_featured'] ? 1 : 0;
         $products->save();
         return redirect()->action([AdminController::class, 'admin_products']);
     }

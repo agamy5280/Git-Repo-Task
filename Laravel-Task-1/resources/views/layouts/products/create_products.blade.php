@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 @section('content')
 <div class="content-wrapper" style="padding: 50px">
-    <form method="POST" action="{{ url('admin/products/') }}" id="form-add" enctype="multipart/form-data">
+    <form method="POST" action="{{ url('admin/products') }}" id="form-add" enctype="multipart/form-data">
         @csrf
         <h1>Add Products</h1>
         <div class="mb-3">
@@ -18,10 +18,11 @@
         </div>
         <div class="mb-3">
             <label for="exampleFormControlTextarea1" class="form-label">Product Category:</label>
-            <select class="form-select" aria-label="Default select example" style="width: 250px;">
+            <select class="form-select" aria-label="Default select example" style="width: 250px;" name="category_id">
                 <option selected>Select Product Category</option>
-                @foreach($categories as $index =>$category )
-                <option>{{ $category['name'] }}</option>
+                @foreach($categories as $category )
+                <option value="{{ $category->id }}" {{ old('category_id') == $category['id'] ? 'selected' : '' }}>
+                    {{ $category->name }}</option>
                 @endforeach
              </select>
         </div>
