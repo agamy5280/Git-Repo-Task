@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductsController;
@@ -28,6 +29,12 @@ Route::get('/shop', [HomeController::class, 'shop']);
 Route::middleware('auth')->prefix('/admin')->group(function () {
     Route::get('categories', [AdminController::class, 'admin_categories']);
     Route::get('products', [AdminController::class, 'admin_products']);
+    Route::get('categories/create', [CategoriesController::class, 'create']);
+    Route::post('categories', [CategoriesController::class, 'store']);
+    Route::get('categories/{id}/edit', [CategoriesController::class, 'edit']);
+    Route::put('categories/{id}', [CategoriesController::class, 'update']);
+    Route::delete('categories/{id}', [CategoriesController::class, 'destroy']);
+
     Route::get('products/create', [ProductsController::class, 'create']);
     Route::post('products', [ProductsController::class, 'store']);
     Route::get('products/{id}/edit', [ProductsController::class, 'edit']);

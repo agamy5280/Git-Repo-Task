@@ -38,8 +38,6 @@ class ProductsController extends Controller
     {
         $products = Product::findOrFail($id);
 
-        $request->validate(Product::$rules);
-
         $products->fill($request->post());
 
         $imageUrl = $request->file('image')->store('products', ['disk' => 'public']);
