@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Product;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -19,5 +20,9 @@ class AdminController extends Controller
     function admin_products()
     {
         return view('layouts.products.admin_products')->with('products',Product::all());
+    }
+    function admin_users()
+    {
+        return view('layouts.users.admin_users')->with('users', User::all());
     }
 }

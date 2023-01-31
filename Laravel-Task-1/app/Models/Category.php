@@ -11,4 +11,7 @@ class Category extends Model
     public static $rules = ['name' => 'required', 'image' => 'required'];
     protected $guarded = [];
     public $timestamps = false;
+    public function products(){
+        return $this->hasMany(Product::class);
+    }
 }

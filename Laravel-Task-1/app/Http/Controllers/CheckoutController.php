@@ -3,11 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Category;
 use Illuminate\Support\Facades\Session;
 class CheckoutController extends Controller
 {
     //
     function checkout() {
+        $categories = Category::all();
         $productSession = Session::get('products', []);
         $shippingSession = Session::get('shipping', 0);
         $subTotalSession = Session::get('subTotal', 0);
@@ -17,6 +19,7 @@ class CheckoutController extends Controller
             'subTotal' => $subTotalSession,
             'total' => $totalSession,
             'shipping' => $shippingSession,
+            'categories' => $categories,
         ]);
     }
 }

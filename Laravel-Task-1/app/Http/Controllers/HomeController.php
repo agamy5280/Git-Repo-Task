@@ -19,7 +19,20 @@ class HomeController extends Controller
         ]);
     }
 
-    function shop(){
-        return view('shop');
-    }   
+    function shop(Request $request){
+        $query = Product::query();
+        $inputs = $request->all();
+        $products = Product::all();
+        $categories = Category::all();
+        if (isset($inputs['keywords'])) {
+            $query = $query->where('name', 'like',  $inputs['keywords'] );
+            $query = $query->orderByDesc('created_at');
+            $productName = $query->getBindings();
+            $searchedProduct = Product::all()->where('name', '=', $productName[0]);
+            $searchedProduct = $searchedProduct->toArray();
+            $products = $searchedProduct;
+        }
+        return view('shop')->with(['products' => $products, 'categories' => $categories]);
+    }
+    
 }

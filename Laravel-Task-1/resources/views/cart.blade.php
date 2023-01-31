@@ -1,5 +1,5 @@
 
-@extends('layouts.main')
+@extends('layouts.main', ['categories' => $categories])
 @section('content')
 <!-- Breadcrumb Start -->
 <div class="container-fluid">

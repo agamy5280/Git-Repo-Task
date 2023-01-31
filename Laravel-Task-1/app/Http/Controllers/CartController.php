@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Session;
 class CartController extends Controller
 {
     function cart(Request $request){
+        $categories = Category::all();
         $request->session()->forget('products');
         $ids = Session::get('ids', []);
         $productSession = Session::get('products', []);
@@ -45,7 +46,8 @@ class CartController extends Controller
             'subTotal' => $subTotal,
             'total' => $total,
             'shipping' => $shipping,
-            'quantity' => $quantity
+            'quantity' => $quantity,
+            'categories' => $categories
         ]);
     }
     function addproductID(Request $request)

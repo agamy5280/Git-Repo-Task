@@ -1,4 +1,4 @@
-@extends('layouts.main')
+@extends('layouts.main', ['categories' => $categories])
 @section('content')
 <!-- Carousel Start -->
 <div class="container-fluid mb-3">
@@ -133,20 +133,7 @@
                     </div>
                     <div class="flex-fill pl-3">
                         <h6>{{ $category['name'] }}</h6>
-                        @foreach($products as $prod)
-                        <?php
-                            $index = 0;
-                        ?>
-                        @if($category['id'] == $prod['category_id'])
-                        <?php
-                        $index += 1
-                        ?>
-                        <small class="text-body">{{ $index }} Products</small>
-                        <?php
-                            $index = 1;
-                        ?>
-                        @endif
-                        @endforeach
+                        <small class="text-body">{{ $category['products']->count() }} Products</small>
                     </div>
                 </div>
             </a>
@@ -163,6 +150,7 @@
     </h2>
     <div class="row px-xl-5">
         @foreach($products as $prod)
+        
         @if ($prod['is_featured'])
         <div class="col-lg-3 col-md-4 col-sm-6 pb-1">
             <div class="product-item bg-light mb-4">
@@ -173,8 +161,7 @@
                             onclick="addSingleProductToCart({{ $prod['id'] }})"><i class="fa fa-shopping-cart"></i></a>
                             <a class="btn btn-outline-dark btn-square" onclick="addSingleProductToWishList({{ $prod['id'] }})">
                                 <i class="far fa-heart"></i></a>
-                        <a class="btn btn-outline-dark btn-square" href="#"><i class="fa fa-sync-alt"></i></a>
-                        <a class="btn btn-outline-dark btn-square" href="#"><i class="fa fa-search"></i></a>
+                            <a class="btn btn-outline-dark btn-square" href="{{ url('/detail' . '/'. $prod['id']) }}" ><i class="fa fa-search"></i></a>
                     </div>
                 </div>
                 <div class="text-center py-4">
@@ -184,12 +171,9 @@
                         <h6 class="text-muted ml-2"><del>${{ $prod['price'] }}</del></h6>
                     </div>
                     <div class="d-flex align-items-center justify-content-center mb-1">
-                        <small class="fa fa-star text-primary mr-1"></small>
-                        <small class="fa fa-star text-primary mr-1"></small>
-                        <small class="fa fa-star text-primary mr-1"></small>
-                        <small class="fa fa-star text-primary mr-1"></small>
-                        <small class="fa fa-star text-primary mr-1"></small>
-                        <small>({{ $prod['rating_count'] }})</small>
+                         @include('layouts.stars', ['productRating' => $prod['rating']])
+                         @yield('stars')       
+                    <small>({{ $prod['rating_count'] }})</small>
                     </div>
                 </div>
             </div>
@@ -242,11 +226,9 @@
                     <div class="product-action">
                         <a class="btn btn-outline-dark btn-square"
                             onclick="addSingleProductToCart({{ $prod['id'] }})"><i class="fa fa-shopping-cart"></i></a>
-                            addSingleProductToWishList
                         <a class="btn btn-outline-dark btn-square" onclick="addSingleProductToWishList({{ $prod['id'] }})">
                             <i class="far fa-heart"></i></a>
-                        <a class="btn btn-outline-dark btn-square" href="#"><i class="fa fa-sync-alt"></i></a>
-                        <a class="btn btn-outline-dark btn-square" href="#"><i class="fa fa-search"></i></a>
+                        <a class="btn btn-outline-dark btn-square" href="{{ url('/detail' . '/'. $prod['id']) }}" ><i class="fa fa-search"></i></a>
                     </div>
                 </div>
                 <div class="text-center py-4">
@@ -256,11 +238,8 @@
                         <h6 class="text-muted ml-2"><del>${{ $prod['price'] }}</del></h6>
                     </div>
                     <div class="d-flex align-items-center justify-content-center mb-1">
-                        <small class="fa fa-star text-primary mr-1"></small>
-                        <small class="fa fa-star text-primary mr-1"></small>
-                        <small class="fa fa-star text-primary mr-1"></small>
-                        <small class="fa fa-star text-primary mr-1"></small>
-                        <small class="fa fa-star text-primary mr-1"></small>
+                        @include('layouts.stars', ['productRating' => $prod['rating']])
+                        @yield('stars')
                         <small>({{ $prod['rating_count'] }})</small>
                     </div>
                 </div>
@@ -312,27 +291,47 @@
     function addSingleProductToCart(id) {
         // console.log(id);
         $.ajax({
+            url: '{{ url('/auth/check') }}',
+            success: (data) => {
+                // console.log(data);
+                if(data == 1){
+                    $.ajax({
             url: '{{ url('/add-productID') }}',
             data: {
                 id: id
             },
             success: (data) => {
-                console.log(data);
+                // console.log(data);
             }
         })
+                }
+                else {
+                    alert("Please Login First")
+                }
+            }
+        })    
     }
     function addSingleProductToWishList(id) {
-        // console.log(id);
         $.ajax({
-            url: '{{ url('/add-productID-Wishlist') }}',
-            data: {
-                id: id
-            },
+            url: '{{ url('/auth/check') }}',
             success: (data) => {
-                console.log(data);
+                // console.log(data);
+                if(data == 1){
+                    $.ajax({
+                        url: '{{ url('/add-productID-Wishlist') }}',
+                        data: {
+                            id: id
+                        },
+                        success: (data) => {
+                            // console.log(data);
+                        }
+                    })
+                }
+                else {
+                    alert("Please Login First")
+                }
             }
-        })
+        })    
     }
-
 </script>
 {{-- @endsection --}}
