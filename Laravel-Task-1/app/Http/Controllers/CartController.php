@@ -76,6 +76,34 @@ class CartController extends Controller
             return abort(404);
         }
     }
+    function addproductIDToWishList(Request $request)
+    {
+        $ids = Session::get('wishListIds', []);
+        $targetID = $request->get('id');
+        $flag = 0;
+        if ($request->has('id')){
+            for ($i = 0; $i < count($ids); $i++){
+                if($targetID == $ids[$i]['id']){
+                    $ids[$i]['quantity'] += 1;
+                    $flag = 1;
+                }else {
+                    $ids[$i]['quantity'] = 1;
+                    $flag = 0;
+                }
+            }
+            if($flag == 0){
+                array_push($ids, ['id' => $targetID, 'quantity' => 1]);
+                Session::put('wishListIds', $ids);
+                return response()->json('Data Added');
+            }else{
+                Session::put('wishListIds', $ids);
+                return response()->json('Product duplicated!');
+            }
+        } 
+        else {
+            return abort(404);
+        }
+    }
     function increaseProductQuantity (Request $request) {
         $ids = Session::get('ids', []);
         $targetID = $request->get('id');

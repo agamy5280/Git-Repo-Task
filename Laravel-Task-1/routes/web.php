@@ -53,6 +53,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/admin', [AdminController::class, 'admin']);
     Route::get('/cart', [CartController::class, 'cart']);
     Route::get('/add-productID', [CartController::class, 'addproductID']);
+    Route::get('/add-productID-Wishlist', [CartController::class, 'addproductIDToWishList']);
     Route::get('/removeProduct', [CartController::class, 'removeProduct']);
     Route::get('/increaseProductQuantity', [CartController::class, 'increaseProductQuantity']);
     Route::get('/decreaseProductQuantity', [CartController::class, 'decreaseProductQuantity']);

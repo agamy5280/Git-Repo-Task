@@ -171,7 +171,8 @@
                     <div class="product-action">
                         <a class="btn btn-outline-dark btn-square"
                             onclick="addSingleProductToCart({{ $prod['id'] }})"><i class="fa fa-shopping-cart"></i></a>
-                        <a class="btn btn-outline-dark btn-square" href="#"><i class="far fa-heart"></i></a>
+                            <a class="btn btn-outline-dark btn-square" onclick="addSingleProductToWishList({{ $prod['id'] }})">
+                                <i class="far fa-heart"></i></a>
                         <a class="btn btn-outline-dark btn-square" href="#"><i class="fa fa-sync-alt"></i></a>
                         <a class="btn btn-outline-dark btn-square" href="#"><i class="fa fa-search"></i></a>
                     </div>
@@ -241,7 +242,9 @@
                     <div class="product-action">
                         <a class="btn btn-outline-dark btn-square"
                             onclick="addSingleProductToCart({{ $prod['id'] }})"><i class="fa fa-shopping-cart"></i></a>
-                        <a class="btn btn-outline-dark btn-square" href="#"><i class="far fa-heart"></i></a>
+                            addSingleProductToWishList
+                        <a class="btn btn-outline-dark btn-square" onclick="addSingleProductToWishList({{ $prod['id'] }})">
+                            <i class="far fa-heart"></i></a>
                         <a class="btn btn-outline-dark btn-square" href="#"><i class="fa fa-sync-alt"></i></a>
                         <a class="btn btn-outline-dark btn-square" href="#"><i class="fa fa-search"></i></a>
                     </div>
@@ -307,9 +310,21 @@
 {{-- @section('scripts') --}}
 <script>
     function addSingleProductToCart(id) {
-        // console.log(product);
+        // console.log(id);
         $.ajax({
-            url: '{{ url(' / add - productID ') }}',
+            url: '{{ url('/add-productID') }}',
+            data: {
+                id: id
+            },
+            success: (data) => {
+                console.log(data);
+            }
+        })
+    }
+    function addSingleProductToWishList(id) {
+        // console.log(id);
+        $.ajax({
+            url: '{{ url('/add-productID-Wishlist') }}',
             data: {
                 id: id
             },

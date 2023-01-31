@@ -104,7 +104,7 @@
                         <a href="" class="btn px-0 ml-2">
                             <i class="fas fa-heart text-dark"></i>
                             <span class="badge text-dark border border-dark rounded-circle"
-                                style="padding-bottom: 2px">0</span>
+                                style="padding-bottom: 2px">{{ count(session()->get('wishListIds', [])) }}</span>
                         </a>
                         <a href="" class="btn px-0 ml-2">
                             <i class="fas fa-shopping-cart text-dark"></i>
@@ -205,7 +205,7 @@
                                 <a href="" class="btn px-0">
                                     <i class="fas fa-heart text-primary"></i>
                                     <span class="badge text-secondary border border-secondary rounded-circle"
-                                        style="padding-bottom: 2px">0</span>
+                                        style="padding-bottom: 2px">{{ count(session()->get('wishListIds', [])) }}</span>
                                 </a>
                                 <a href="" class="btn px-0 ml-3">
                                     <i class="fas fa-shopping-cart text-primary"></i>
@@ -323,8 +323,6 @@
         <script src="{{url('lib/owlcarousel/owl.carousel.min.js')}}"></script>
 
         <!-- Contact Javascript File -->
-        <script src="{{url('mail/jqBootstrapValidation.min.js')}}"></script>
-        <script src="{{url('mail/contact.js')}}"></script>
 
         <!-- Template Javascript -->
         <script src="{{url('js/main.js')}}"></script>
