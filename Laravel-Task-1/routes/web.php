@@ -25,7 +25,7 @@ use Illuminate\Support\Facades\Auth;
 
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/shop', [HomeController::class, 'shop']);
-
+Route::get('/contact', [HomeController::class, 'contact']);
 Route::get('/auth/check', function () {return (auth()->check()); });
 
 Route::get('/detail/{id}', [DetailController::class, 'detail']);

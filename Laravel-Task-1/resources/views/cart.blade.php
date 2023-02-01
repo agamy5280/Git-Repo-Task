@@ -93,9 +93,11 @@
                         <h5>Total</h5>
                         <h5 id="total">$ {{ $total }}</h5>
                     </div>
-                    <button class="btn btn-block btn-primary font-weight-bold my-3 py-3">
-                        Proceed To Checkout
-                    </button>
+                    <a href="{{ url('checkout') }}">
+                        <button class="btn btn-block btn-primary font-weight-bold my-3 py-3">
+                            Proceed To Checkout
+                        </button>
+                    </a>
                 </div>
             </div>
         </div>

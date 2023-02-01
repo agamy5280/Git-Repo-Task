@@ -34,5 +34,13 @@ class HomeController extends Controller
         }
         return view('shop')->with(['products' => $products, 'categories' => $categories]);
     }
+    function contact() {
+        $categories = Category::all();
+        $products = Product::all();
+        return view('contact')->with([
+            'categories' => $categories,
+            'products' => $products
+        ]);
+    }
     
 }
