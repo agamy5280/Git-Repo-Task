@@ -187,50 +187,60 @@
                         <div class="tab-pane fade" id="tab-pane-3">
                             <div class="row">
                                 <div class="col-md-6">
-                                    <h4 class="mb-4">1 review for "{{$selectedProduct['name']}}"</h4>
+                                    <h4 class="mb-4">{{$selectedProduct['rating_count']}} review for "{{$selectedProduct['name']}}"</h4>
+                                    @foreach($rating as $rating)
+                                    @if($rating['product_id'] == $selectedProduct['id'])
                                     <div class="media mb-4">
-                                        <img src="img/user.jpg" alt="Image" class="img-fluid mr-3 mt-1" style="width: 45px;">
                                         <div class="media-body">
-                                            <h6>John Doe<small> - <i>01 Jan 2045</i></small></h6>
+                                            <h6>{{ $rating['reviewName'] }}<small> - <i>{{ $rating['created_at'] }}</i></small></h6>
                                             <div class="text-primary mb-2">
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star-half-alt"></i>
-                                                <i class="far fa-star"></i>
+                                                @include('layouts.stars', ['productRating' => $rating['rating']])
+                                                @yield('stars')
                                             </div>
-                                            <p>Diam amet duo labore stet elitr ea clita ipsum, tempor labore accusam ipsum et no at. Kasd diam tempor rebum magna dolores sed sed eirmod ipsum.</p>
+                                            <p>{{ $rating['reviewMsg'] }}.</p>
                                         </div>
                                     </div>
+                                    @endif
+                                    @endforeach
                                 </div>
                                 <div class="col-md-6">    
                                     <h4 class="mb-4">Leave a review</h4>
                                     <small>Your email address will not be published. Required fields are marked *</small>
-                                    <form>
+                                    <form method="post" action="{{url('addRating')}}" id="ratingForm" enctype="multipart/form-data">
+                                        @csrf
                                     <div class="d-flex my-3">
                                         <p class="mb-0 mr-2">Your Rating * :</p>
-                                        <div class="text-primary" id="stars">
-                                            <i class="far fa-star"></i>
-                                            <i class="far fa-star"></i>
-                                            <i class="far fa-star"></i>
-                                            <i class="far fa-star"></i>
-                                            <i class="far fa-star"></i>
-                                        </div>
+                                        <div class="demo">
+                                            <div class="ratingControl">
+                                              <input type="radio" id="rating-5" name="rating" value="5">
+                                              <label class="ratingControl-stars ratingControl-stars--5" for="rating-5">5</label>
+                                              <input type="radio" id="rating-45" name="rating" value="4.5">
+                                              <label class="ratingControl-stars ratingControl-stars--45 ratingControl-stars--half" for="rating-45">45</label>
+                                              <input type="radio" id="rating-4" name="rating" value="4">
+                                              <label class="ratingControl-stars ratingControl-stars--4" for="rating-4">4</label>
+                                              <input type="radio" id="rating-35" name="rating" value="3.5">
+                                              <label class="ratingControl-stars ratingControl-stars--35 ratingControl-stars--half" for="rating-35">35</label>
+                                              <input type="radio" id="rating-3" name="rating" value="3">
+                                              <label class="ratingControl-stars ratingControl-stars--3" for="rating-3">3</label>
+                                              <input type="radio" id="rating-25" name="rating" value="2.5">
+                                              <label class="ratingControl-stars ratingControl-stars--25 ratingControl-stars--half" for="rating-25">25</label>
+                                              <input type="radio" id="rating-2" name="rating" value="2">
+                                              <label class="ratingControl-stars ratingControl-stars--2" for="rating-2">2</label>
+                                              <input type="radio" id="rating-15" name="rating" value="1.5">
+                                              <label class="ratingControl-stars ratingControl-stars--15 ratingControl-stars--half" for="rating-15">15</label>
+                                              <input type="radio" id="rating-1" name="rating" value="1">
+                                              <label class="ratingControl-stars ratingControl-stars--1" for="rating-1">1</label>
+                                              <input type="radio" id="rating-05" name="rating" value="0.5">
+                                              <label class="ratingControl-stars ratingControl-stars--05 ratingControl-stars--half" for="rating-05">05</label>
+                                            </div>
+                                          </div>
                                     </div>
                                         <div class="form-group">
                                             <label for="message">Your Review *</label>
-                                            <textarea id="message" cols="30" rows="5" class="form-control"></textarea>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="name">Your Name *</label>
-                                            <input type="text" class="form-control" id="name">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="email">Your Email *</label>
-                                            <input type="email" class="form-control" id="email">
+                                            <textarea id="message" cols="30" rows="5" class="form-control" name="reviewMsg"></textarea>
                                         </div>
                                         <div class="form-group mb-0">
-                                            <input type="submit" value="Leave Your Review" class="btn btn-primary px-3">
+                                            <button class="btn btn-primary px-3" type="submit" form="ratingForm" value="Submit">Leave Your Review</button>
                                         </div>
                                     </form>
                                 </div>

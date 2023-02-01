@@ -67,6 +67,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/decreaseProductQuantity', [CartController::class, 'decreaseProductQuantity']);
     Route::get('/checkout', [CheckoutController::class, 'checkout']);
     Route::post('/addOrder', [CheckoutController::class, 'addOrder']);
+    Route::post('/addRating', [DetailController::class, 'rating']);
 });
 
 require __DIR__.'/auth.php';
