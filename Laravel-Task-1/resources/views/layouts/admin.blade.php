@@ -91,34 +91,10 @@
             <!-- Add icons to the links using the .nav-icon class
                  with font-awesome or any other icon font library -->
             <li class="nav-item">
-              <a href="pages/widgets.html" class="nav-link">
+              <a href="{{ url('admin/orders') }}" class="nav-link">
                 <i class="nav-icon fas fa-th"></i>
                 <p>
-                  Sizes
-                </p>
-              </a>
-            </li>
-          </ul>
-          <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-            <!-- Add icons to the links using the .nav-icon class
-                 with font-awesome or any other icon font library -->
-            <li class="nav-item">
-              <a href="pages/widgets.html" class="nav-link">
-                <i class="nav-icon fas fa-th"></i>
-                <p>
-                  Colors
-                </p>
-              </a>
-            </li>
-          </ul>
-          <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-            <!-- Add icons to the links using the .nav-icon class
-                 with font-awesome or any other icon font library -->
-            <li class="nav-item">
-              <a href="pages/widgets.html" class="nav-link">
-                <i class="nav-icon fas fa-th"></i>
-                <p>
-                  Logout
+                  Orders
                 </p>
               </a>
             </li>

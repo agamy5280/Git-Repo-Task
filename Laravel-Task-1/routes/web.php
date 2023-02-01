@@ -35,6 +35,7 @@ Route::middleware(['auth', 'can:is_admin'])->prefix('/admin')->group(function ()
     Route::get('categories', [AdminController::class, 'admin_categories']);
     Route::get('products', [AdminController::class, 'admin_products']);
     Route::get('users', [AdminController::class, 'admin_users']);
+    Route::get('orders', [AdminController::class, 'admin_orders']);
     // <---------------------------------------------------------------------------->
     Route::get('categories/create', [CategoriesController::class, 'create']);
     Route::post('categories', [CategoriesController::class, 'store']);
@@ -65,6 +66,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/increaseProductQuantity', [CartController::class, 'increaseProductQuantity']);
     Route::get('/decreaseProductQuantity', [CartController::class, 'decreaseProductQuantity']);
     Route::get('/checkout', [CheckoutController::class, 'checkout']);
+    Route::post('/addOrder', [CheckoutController::class, 'addOrder']);
 });
 
 require __DIR__.'/auth.php';
